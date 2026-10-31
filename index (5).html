@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HUSANBOY — Ilovalar omborxonasi</title>
+<meta name="description" content="HUSANBOY ilovalar omborxonasi: 100 dan ortiq mashhur ilova va o'yin — banklar, davlat xizmatlari, ta'lim, sun'iy intellekt va boshqalar. Har biri Google Play'dagi sahifaga olib boradi.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HUSANBOY — Ilovalar omborxonasi">
+<meta property="og:description" content="HUSANBOY ilovalar omborxonasi: 100 dan ortiq mashhur ilova va o'yin — banklar, davlat xizmatlari, ta'lim, sun'iy intellekt va boshqalar. Har biri Google Play'dagi sahifaga olib boradi.">
+<meta property="og:locale" content="uz_UZ">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
+<style>
+:root{
+  --bg:#15171d; --card:#1e212a; --text:#e9ebf1; --muted:#9aa1b0;
+  --accent:#e8a33d; --border:#2b2f3a;
+  color-scheme: dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f6f5f2; --card:#ffffff; --text:#1b1d22; --muted:#6b7280; --border:#e4e2dc;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);}
+header{
+  padding:2.2rem 1.25rem 1.4rem;
+  border-bottom:1px solid var(--border);
+}
+header h1{
+  margin:0 0 .35rem; font-size:1.65rem; font-weight:700; letter-spacing:-.01em;
+}
+header p{margin:0; color:var(--muted); font-size:.95rem; max-width:40ch;}
+main{padding:1.5rem 1.25rem 3rem; max-width:720px; margin:0 auto;}
+section{margin-bottom:2.1rem;}
+section h2{
+  font-size:1.02rem; font-weight:600; margin:0 0 .8rem; color:var(--text);
+  border-left:3px solid var(--accent); padding-left:.6rem;
+}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(148px,1fr)); gap:.7rem;}
+.card{
+  display:flex; flex-direction:column; gap:.5rem;
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:.9rem; text-decoration:none; color:var(--text);
+  transition:border-color .15s ease;
+}
+.card:active{border-color:var(--accent);}
+.icon{
+  width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; font-weight:700; color:#15171d; background:var(--accent);
+}
+.name{font-size:.92rem; font-weight:600;}
+.cat-tag{font-size:.75rem; color:var(--muted);}
+footer{
+  padding:1.5rem 1.25rem 2.5rem; text-align:center; color:var(--muted); font-size:.82rem;
+  border-top:1px solid var(--border);
+}
+footer a{color:var(--accent); text-decoration:none;}
+.chat-log{display:flex; flex-direction:column; gap:.5rem; max-height:280px; overflow-y:auto; margin-bottom:.7rem;}
+.bubble{padding:.6rem .8rem; border-radius:12px; font-size:.9rem; max-width:85%; white-space:pre-wrap;}
+.bubble.user{align-self:flex-end; background:var(--accent); color:#15171d;}
+.bubble.assistant{align-self:flex-start; background:var(--card); border:1px solid var(--border);}
+.chat-form{display:flex; gap:.5rem;}
+.chat-form input{flex:1; min-width:0; padding:.65rem .8rem; border-radius:10px; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:.9rem;}
+.chat-form button{flex:0 0 auto; padding:.65rem 1rem; border-radius:10px; border:none; background:var(--accent); color:#15171d; font-weight:600; font-size:.9rem;}
+.chat-hint{font-size:.8rem; color:var(--muted); margin:.5rem 0 0;}
+.icon.icon-social{background:#4f8ff7; color:#0b1220;}
+.icon.icon-media{background:#e2574c; color:#1a0a08;}
+.icon.icon-games{background:#38b6a6; color:#06201c;}
+.icon.icon-finance{background:#2fae6b; color:#06201a;}
+.icon.icon-gov{background:#6b7280; color:#101317;}
+.icon.icon-ai{background:#8b5cf6; color:#160c2e;}
+.icon.icon-edu{background:#6366f1; color:#0d0e2e;}
+.icon.icon-transport{background:#0ea5b7; color:#042226;}
+.icon.icon-security{background:#e5484d; color:#2a0607;}
+.icon.icon-health{background:#06b6d4; color:#03262c;}
+.search-wrap{margin:0 0 1.6rem;}
+.search-wrap input{width:100%; padding:.75rem .9rem; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:.95rem;}
+.search-wrap input::placeholder{color:var(--muted);}
+.empty-msg{color:var(--muted); font-size:.9rem; display:none; padding:.5rem 0;}
+.cat-nav{display:flex; gap:.5rem; overflow-x:auto; padding-bottom:.3rem; margin:0 0 1.4rem; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
+.cat-nav::-webkit-scrollbar{display:none;}
+.cat-nav a{flex:0 0 auto; padding:.4rem .85rem; border-radius:999px; border:1px solid var(--border); background:var(--card); color:var(--muted); font-size:.82rem; text-decoration:none; white-space:nowrap;}
+.sec-head{display:flex; align-items:center; justify-content:space-between; gap:.6rem; margin:0 0 .8rem;}
+.sec-head h2{margin:0;}
+.add-btn{flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid var(--border); background:var(--card); color:var(--accent); font-size:1.15rem; font-weight:700; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+.game-form{display:none; gap:.5rem; margin:0 0 1rem; padding:.8rem; border:1px solid var(--border); border-radius:12px; background:var(--card);}
+.game-form.open{display:flex; flex-direction:column;}
+.game-form input{padding:.6rem .75rem; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:.88rem;}
+.game-form .form-actions{display:flex; gap:.5rem;}
+.game-form button{padding:.55rem .9rem; border-radius:10px; border:none; font-weight:600; font-size:.85rem; cursor:pointer;}
+.game-form .save-btn{background:var(--accent); color:#15171d;}
+.game-form .cancel-btn{background:transparent; color:var(--muted); border:1px solid var(--border);}
+.fab{position:fixed; right:1.1rem; bottom:calc(1.1rem + env(safe-area-inset-bottom,0px)); z-index:20; width:56px; height:56px; border-radius:50%; border:none; background:var(--accent); color:#15171d; font-size:1.9rem; font-weight:600; line-height:1; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,.28); display:flex; align-items:center; justify-content:center;}
+.fab:active{transform:scale(.95);}
+.form-err{margin:0; font-size:.8rem; color:#e5484d; display:none;}
+.card-wrap{position:relative; display:flex;}
+.card-wrap .card{flex:1; min-width:0;}
+.del-btn{position:absolute; top:.5rem; right:.5rem; min-width:30px; height:30px; padding:0 .55rem; border-radius:15px; border:1px solid var(--border); background:var(--bg); color:var(--muted); font-size:1rem; line-height:1; cursor:pointer;}
+.del-btn.armed{background:#e5484d; border-color:#e5484d; color:#fff; font-size:.75rem; font-weight:600;}
+.add-panel{position:fixed; left:0; right:0; bottom:0; z-index:30; max-width:720px; margin:0 auto; border-width:1px 0 0 0; border-radius:16px 16px 0 0; padding:1rem 1.25rem calc(1rem + env(safe-area-inset-bottom,0px)); box-shadow:0 -10px 30px rgba(0,0,0,.28);}
+.panel-title{font-weight:700; font-size:1rem;}
+.add-panel input, .add-panel select{font-size:1rem;}
+.game-form select{padding:.6rem .75rem; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text);}
+.grid{grid-template-columns:repeat(4,minmax(0,1fr)); gap:.5rem;}
+.card{align-items:center; text-align:center; gap:.3rem; padding:.65rem .3rem; border-radius:12px;}
+.icon{width:46px; height:46px; border-radius:12px; font-size:1.25rem;}
+.name{font-size:.72rem; line-height:1.2; width:100%; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; word-break:break-word;}
+.cat-tag{font-size:.62rem; width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.del-btn{top:.25rem; right:.25rem; min-width:24px; height:24px; padding:0 .4rem; font-size:.9rem;}
+.del-btn.armed{font-size:.6rem; padding:0 .35rem;}
+@media (min-width:640px){ .grid{grid-template-columns:repeat(auto-fill,minmax(96px,1fr));} }
+.name{display:block; -webkit-line-clamp:unset; overflow:visible; overflow-wrap:anywhere;}
+.cat-tag{white-space:normal; overflow:visible; text-overflow:clip; overflow-wrap:anywhere;}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%;}
+.name{font-size:clamp(.6rem,2.7vw,.72rem); overflow-wrap:break-word;}
+.cat-tag{font-size:clamp(.54rem,2.4vw,.62rem); overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+<header>
+  <h1>HUSANBOY</h1>
+  <p>Ilovalar omborxonasi: bosing va to'g'ridan-to'g'ri Google Play'dagi sahifasiga o'ting. Jami <span id="app-count">116</span> ta ilova.</p>
+</header>
+<main>
+
+<div class="search-wrap">
+  <input id="app-search" type="text" placeholder="Ilova nomini qidiring..." autocomplete="off">
+</div>
+<nav class="cat-nav">
+  <a href="#sec-muloqot">Muloqot</a>
+  <a href="#sec-video">Video</a>
+  <a href="#sec-games">O'yinlar</a>
+  <a href="#sec-ai">AI</a>
+  <a href="#sec-finance">Moliya</a>
+  <a href="#sec-gov">Davlat</a>
+  <a href="#sec-edu">Ta'lim</a>
+  <a href="#sec-transport">Transport</a>
+  <a href="#sec-security">Xavfsizlik</a>
+  <a href="#sec-health">Salomatlik</a>
+  <a href="#sec-tools">Foydali</a>
+</nav>
+<p id="empty-msg" class="empty-msg">Hech narsa topilmadi.</p>
+
+<section data-section id="sec-muloqot">
+  <h2>Muloqot va ijtimoiy tarmoqlar</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.whatsapp" target="_blank" rel="noopener" data-name="whatsapp">
+      <div class="icon icon-social">W</div><div class="name">WhatsApp</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=org.telegram.messenger" target="_blank" rel="noopener" data-name="telegram">
+      <div class="icon icon-social">T</div><div class="name">Telegram</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.instagram.android" target="_blank" rel="noopener" data-name="instagram">
+      <div class="icon icon-social">I</div><div class="name">Instagram</div><div class="cat-tag">Ijtimoiy tarmoq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically" target="_blank" rel="noopener" data-name="tiktok">
+      <div class="icon icon-social">T</div><div class="name">TikTok</div><div class="cat-tag">Ijtimoiy tarmoq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.facebook.katana" target="_blank" rel="noopener" data-name="facebook">
+      <div class="icon icon-social">F</div><div class="name">Facebook</div><div class="cat-tag">Ijtimoiy tarmoq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.snapchat.android" target="_blank" rel="noopener" data-name="snapchat">
+      <div class="icon icon-social">S</div><div class="name">Snapchat</div><div class="cat-tag">Ijtimoiy tarmoq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=aka+messenger&amp;c=apps" target="_blank" rel="noopener" data-name="aka">
+      <div class="icon icon-social">A</div><div class="name">aka</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Plus+Messenger&amp;c=apps" target="_blank" rel="noopener" data-name="plus messenger">
+      <div class="icon icon-social">P</div><div class="name">Plus Messenger</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.imo.android.imoim" target="_blank" rel="noopener" data-name="imo">
+      <div class="icon icon-social">I</div><div class="name">imo</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=org.thunderdog.challegram" target="_blank" rel="noopener" data-name="telegram x">
+      <div class="icon icon-social">T</div><div class="name">Telegram X</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Graph+Messenger&amp;c=apps" target="_blank" rel="noopener" data-name="graph messenger">
+      <div class="icon icon-social">G</div><div class="name">Graph Messenger</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.instagram.barcelona" target="_blank" rel="noopener" data-name="threads">
+      <div class="icon icon-social">T</div><div class="name">Threads</div><div class="cat-tag">Ijtimoiy</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.pinterest" target="_blank" rel="noopener" data-name="pinterest">
+      <div class="icon icon-social">P</div><div class="name">Pinterest</div><div class="cat-tag">Turmush tarzi</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.whatsapp.w4b" target="_blank" rel="noopener" data-name="whatsapp business">
+      <div class="icon icon-social">W</div><div class="name">WhatsApp Business</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Ucell+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="ucell">
+      <div class="icon icon-social">U</div><div class="name">Ucell</div><div class="cat-tag">Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=My+Uztelecom&amp;c=apps" target="_blank" rel="noopener" data-name="my uztelecom">
+      <div class="icon icon-social">M</div><div class="name">My Uztelecom</div><div class="cat-tag">Biznes • Muloqot</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=hambi+Beeline+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="hambi">
+      <div class="icon icon-social">H</div><div class="name">hambi (Beeline)</div><div class="cat-tag">Biznes</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-video">
+  <h2>Video va musiqa</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.google.android.youtube" target="_blank" rel="noopener" data-name="youtube">
+      <div class="icon icon-media">Y</div><div class="name">YouTube</div><div class="cat-tag">Video</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.netflix.mediaclient" target="_blank" rel="noopener" data-name="netflix">
+      <div class="icon icon-media">N</div><div class="name">Netflix</div><div class="cat-tag">Video</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.spotify.music" target="_blank" rel="noopener" data-name="spotify">
+      <div class="icon icon-media">S</div><div class="name">Spotify</div><div class="cat-tag">Musiqa</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.lemon.lvoverseas" target="_blank" rel="noopener" data-name="capcut">
+      <div class="icon icon-media">C</div><div class="name">CapCut</div><div class="cat-tag">Video tahrirlash</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=JanaTube+Video+Audio&amp;c=apps" target="_blank" rel="noopener" data-name="janatube">
+      <div class="icon icon-media">J</div><div class="name">JanaTube</div><div class="cat-tag">Video</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Edits+Video+Editor&amp;c=apps" target="_blank" rel="noopener" data-name="edits video editor">
+      <div class="icon icon-media">E</div><div class="name">Edits: Video Editor</div><div class="cat-tag">Video tahrirlash</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.canva.editor" target="_blank" rel="noopener" data-name="canva">
+      <div class="icon icon-media">C</div><div class="name">Canva</div><div class="cat-tag">Fotografiya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=MeShot+GPS+Camera&amp;c=apps" target="_blank" rel="noopener" data-name="meshot">
+      <div class="icon icon-media">M</div><div class="name">MeShot</div><div class="cat-tag">Fotografiya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=ReelShort+Stream+Drama&amp;c=apps" target="_blank" rel="noopener" data-name="reelshort">
+      <div class="icon icon-media">R</div><div class="name">ReelShort</div><div class="cat-tag">Hordiq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=DramaBox+Stream+Drama&amp;c=apps" target="_blank" rel="noopener" data-name="dramabox">
+      <div class="icon icon-media">D</div><div class="name">DramaBox</div><div class="cat-tag">Hordiq</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-games">
+  <h2>O'yinlar</h2>
+  <div class="grid" id="games-grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.dts.freefireth" target="_blank" rel="noopener" data-name="garena free fire">
+      <div class="icon icon-games">F</div><div class="name">Garena Free Fire</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.tencent.ig" target="_blank" rel="noopener" data-name="pubg mobile">
+      <div class="icon icon-games">P</div><div class="name">PUBG Mobile</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.mobile.legends" target="_blank" rel="noopener" data-name="mobile legends">
+      <div class="icon icon-games">M</div><div class="name">Mobile Legends</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Honor+of+Kings&amp;c=apps" target="_blank" rel="noopener" data-name="honor of kings">
+      <div class="icon icon-games">H</div><div class="name">Honor of Kings</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.axlebolt.standoff2" target="_blank" rel="noopener" data-name="standoff 2">
+      <div class="icon icon-games">S</div><div class="name">Standoff 2</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans" target="_blank" rel="noopener" data-name="clash of clans">
+      <div class="icon icon-games">C</div><div class="name">Clash of Clans</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.supercell.brawlstars" target="_blank" rel="noopener" data-name="brawl stars">
+      <div class="icon icon-games">B</div><div class="name">Brawl Stars</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale" target="_blank" rel="noopener" data-name="clash royale">
+      <div class="icon icon-games">C</div><div class="name">Clash Royale</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank" rel="noopener" data-name="roblox">
+      <div class="icon icon-games">R</div><div class="name">Roblox</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Blood+Strike&amp;c=apps" target="_blank" rel="noopener" data-name="blood strike">
+      <div class="icon icon-games">B</div><div class="name">Blood Strike</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Arena+Breakout&amp;c=apps" target="_blank" rel="noopener" data-name="arena breakout">
+      <div class="icon icon-games">A</div><div class="name">Arena Breakout</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Delta+Force+mobile&amp;c=apps" target="_blank" rel="noopener" data-name="delta force">
+      <div class="icon icon-games">D</div><div class="name">Delta Force</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact" target="_blank" rel="noopener" data-name="genshin impact">
+      <div class="icon icon-games">G</div><div class="name">Genshin Impact</div><div class="cat-tag">O'yin</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Honkai+Impact&amp;c=apps" target="_blank" rel="noopener" data-name="honkai impact">
+      <div class="icon icon-games">H</div><div class="name">Honkai Impact</div><div class="cat-tag">O'yin</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-tools">
+  <h2>Foydali vositalar</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" target="_blank" rel="noopener" data-name="google maps">
+      <div class="icon">M</div><div class="name">Google Maps</div><div class="cat-tag">Navigatsiya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.google.android.gm" target="_blank" rel="noopener" data-name="gmail">
+      <div class="icon">G</div><div class="name">Gmail</div><div class="cat-tag">Pochta</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank" rel="noopener" data-name="zoom">
+      <div class="icon">Z</div><div class="name">Zoom</div><div class="cat-tag">Video qo'ng'iroq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank" rel="noopener" data-name="chatgpt">
+      <div class="icon">C</div><div class="name">ChatGPT</div><div class="cat-tag">Sun'iy intellekt</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Uzum+Market+Internet&amp;c=apps" target="_blank" rel="noopener" data-name="uzum market">
+      <div class="icon">U</div><div class="name">Uzum Market</div><div class="cat-tag">Xaridlar</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=OLX+Uzbekiston&amp;c=apps" target="_blank" rel="noopener" data-name="olx">
+      <div class="icon">O</div><div class="name">OLX</div><div class="cat-tag">Xaridlar</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Korzinka&amp;c=apps" target="_blank" rel="noopener" data-name="korzinka">
+      <div class="icon">K</div><div class="name">Korzinka</div><div class="cat-tag">Savdo-sotiq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Listee+xavfsiz+bitimlar&amp;c=apps" target="_blank" rel="noopener" data-name="listee">
+      <div class="icon">L</div><div class="name">Listee</div><div class="cat-tag">Savdo-sotiq</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=PulseMeet+VPN&amp;c=apps" target="_blank" rel="noopener" data-name="pulsemeet">
+      <div class="icon">P</div><div class="name">PulseMeet</div><div class="cat-tag">Turmush tarzi</div>
+    </a>
+  </div>
+</section>
+
+
+<section data-section id="sec-ai">
+  <h2>Sun'iy intellekt</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" target="_blank" rel="noopener" data-name="google gemini">
+      <div class="icon icon-ai">G</div><div class="name">Google Gemini</div><div class="cat-tag">AI</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.anthropic.claude" target="_blank" rel="noopener" data-name="claude by anthropic">
+      <div class="icon icon-ai">C</div><div class="name">Claude by Anthropic</div><div class="cat-tag">AI</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Gauth+AI+Study+Companion&amp;c=apps" target="_blank" rel="noopener" data-name="gauth">
+      <div class="icon icon-ai">G</div><div class="name">Gauth</div><div class="cat-tag">Ta'lim • AI</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Open+Chat+AI+bot+app&amp;c=apps" target="_blank" rel="noopener" data-name="open chat">
+      <div class="icon icon-ai">O</div><div class="name">Open Chat</div><div class="cat-tag">AI</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=AI+Palm+Reading&amp;c=apps" target="_blank" rel="noopener" data-name="ai palm reading">
+      <div class="icon icon-ai">A</div><div class="name">AI Palm Reading</div><div class="cat-tag">Turmush tarzi</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=AI+Video+Generator+Photo&amp;c=apps" target="_blank" rel="noopener" data-name="ai video generator">
+      <div class="icon icon-ai">A</div><div class="name">AI Video Generator</div><div class="cat-tag">Fotografiya</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-finance">
+  <h2>Moliya va banklar</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.google.android.apps.walletnfcrel" target="_blank" rel="noopener" data-name="google wallet">
+      <div class="icon icon-finance">G</div><div class="name">Google Wallet</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Uzum+Bank+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="uzum bank">
+      <div class="icon icon-finance">U</div><div class="name">Uzum Bank</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Paynet+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="paynet">
+      <div class="icon icon-finance">P</div><div class="name">Paynet</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=payme+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="payme">
+      <div class="icon icon-finance">P</div><div class="name">payme</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Click+SuperApp+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="click superapp">
+      <div class="icon icon-finance">C</div><div class="name">Click SuperApp</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Alif+QR+keshbek&amp;c=apps" target="_blank" rel="noopener" data-name="alif">
+      <div class="icon icon-finance">A</div><div class="name">Alif</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=TBC+Bank+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="tbc bank">
+      <div class="icon icon-finance">T</div><div class="name">TBC Bank</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Baraka+moliya&amp;c=apps" target="_blank" rel="noopener" data-name="baraka">
+      <div class="icon icon-finance">B</div><div class="name">Baraka</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=xazna+moliya&amp;c=apps" target="_blank" rel="noopener" data-name="xazna">
+      <div class="icon icon-finance">X</div><div class="name">xazna</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Hamkor+bank+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="hamkor">
+      <div class="icon icon-finance">H</div><div class="name">Hamkor</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Ipoteka+Mobile+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="ipoteka mobile">
+      <div class="icon icon-finance">I</div><div class="name">Ipoteka Mobile</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Una+Moliya+mikrozaym&amp;c=apps" target="_blank" rel="noopener" data-name="una moliya">
+      <div class="icon icon-finance">U</div><div class="name">Una Moliya</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Openbank+UZ&amp;c=apps" target="_blank" rel="noopener" data-name="openbank uz">
+      <div class="icon icon-finance">O</div><div class="name">Openbank UZ</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Anorbank&amp;c=apps" target="_blank" rel="noopener" data-name="anorbank">
+      <div class="icon icon-finance">A</div><div class="name">Anorbank</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Agrobank+Mobile&amp;c=apps" target="_blank" rel="noopener" data-name="agrobank mobile">
+      <div class="icon icon-finance">A</div><div class="name">Agrobank Mobile</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Zoomrad&amp;c=apps" target="_blank" rel="noopener" data-name="zoomrad">
+      <div class="icon icon-finance">Z</div><div class="name">Zoomrad</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Korona+Money+Transfer&amp;c=apps" target="_blank" rel="noopener" data-name="korona money transfer">
+      <div class="icon icon-finance">K</div><div class="name">Korona Money Transfer</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Milliy+NBU&amp;c=apps" target="_blank" rel="noopener" data-name="milliy 2.0">
+      <div class="icon icon-finance">M</div><div class="name">Milliy 2.0</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Ipak+Yuli+Mobile&amp;c=apps" target="_blank" rel="noopener" data-name="ipak yuli mobile">
+      <div class="icon icon-finance">I</div><div class="name">Ipak Yuli Mobile</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Variant+nasiya&amp;c=apps" target="_blank" rel="noopener" data-name="variant nasiya">
+      <div class="icon icon-finance">V</div><div class="name">Variant nasiya</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=SQB+Mobile&amp;c=apps" target="_blank" rel="noopener" data-name="sqb mobile">
+      <div class="icon icon-finance">S</div><div class="name">SQB MOBILE</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Uzum+Nasiya&amp;c=apps" target="_blank" rel="noopener" data-name="uzum nasiya">
+      <div class="icon icon-finance">U</div><div class="name">Uzum Nasiya</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=AVO+bank+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="avo">
+      <div class="icon icon-finance">A</div><div class="name">AVO</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=KATM+kredit+byurosi&amp;c=apps" target="_blank" rel="noopener" data-name="katm">
+      <div class="icon icon-finance">K</div><div class="name">KATM</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=DOMO+kommunal&amp;c=apps" target="_blank" rel="noopener" data-name="domo">
+      <div class="icon icon-finance">D</div><div class="name">DOMO</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Cards+Mobile+Wallet&amp;c=apps" target="_blank" rel="noopener" data-name="cards mobile wallet">
+      <div class="icon icon-finance">C</div><div class="name">Cards — Mobile Wallet</div><div class="cat-tag">Moliya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=OQ+biznes+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="oq">
+      <div class="icon icon-finance">O</div><div class="name">OQ</div><div class="cat-tag">Biznes</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-gov">
+  <h2>Davlat xizmatlari</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/search?q=MyGov+Davlat+xizmatlari&amp;c=apps" target="_blank" rel="noopener" data-name="mygov">
+      <div class="icon icon-gov">M</div><div class="name">MyGov</div><div class="cat-tag">Davlat xizmatlari</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=OneID+mobile+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="oneid mobile">
+      <div class="icon icon-gov">O</div><div class="name">OneID mobile</div><div class="cat-tag">Davlat xizmatlari</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Soliq+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="soliq">
+      <div class="icon icon-gov">S</div><div class="name">Soliq</div><div class="cat-tag">Davlat xizmatlari</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=HEMIS&amp;c=apps" target="_blank" rel="noopener" data-name="hemis">
+      <div class="icon icon-gov">H</div><div class="name">HEMIS</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=MyID+Uzbekistan&amp;c=apps" target="_blank" rel="noopener" data-name="myid o'zbekiston">
+      <div class="icon icon-gov">M</div><div class="name">MyID O'zbekiston</div><div class="cat-tag">Davlat xizmatlari</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Adliya+Plus&amp;c=apps" target="_blank" rel="noopener" data-name="adliya plus">
+      <div class="icon icon-gov">A</div><div class="name">Adliya Plus</div><div class="cat-tag">Davlat xizmatlari</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-edu">
+  <h2>Ta'lim</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/search?q=Ziyoly&amp;c=apps" target="_blank" rel="noopener" data-name="ziyoly">
+      <div class="icon icon-edu">Z</div><div class="name">Ziyoly</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Oson+Prava+Avto+Test&amp;c=apps" target="_blank" rel="noopener" data-name="oson prava">
+      <div class="icon icon-edu">O</div><div class="name">Oson Prava</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=GoPrep&amp;c=apps" target="_blank" rel="noopener" data-name="goprep">
+      <div class="icon icon-edu">G</div><div class="name">GoPrep</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Kasbiy+Rivojlanish&amp;c=apps" target="_blank" rel="noopener" data-name="kasbiy rivojlanish">
+      <div class="icon icon-edu">K</div><div class="name">Kasbiy Rivojlanish</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=eMaktab+Oila&amp;c=apps" target="_blank" rel="noopener" data-name="emaktab.oila">
+      <div class="icon icon-edu">E</div><div class="name">eMaktab.Oila</div><div class="cat-tag">Ta'lim</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Mutolaa&amp;c=apps" target="_blank" rel="noopener" data-name="mutolaa">
+      <div class="icon icon-edu">M</div><div class="name">Mutolaa</div><div class="cat-tag">Kitob</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-transport">
+  <h2>Transport va navigatsiya</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/apps/details?id=ru.yandex.taxi" target="_blank" rel="noopener" data-name="yandex go">
+      <div class="icon icon-transport">Y</div><div class="name">Yandex Go</div><div class="cat-tag">Taksi</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=ru.yandex.yandexnavi" target="_blank" rel="noopener" data-name="yandex navigator">
+      <div class="icon icon-transport">Y</div><div class="name">Yandex Navigator</div><div class="cat-tag">Navigatsiya</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps" target="_blank" rel="noopener" data-name="yandex maps">
+      <div class="icon icon-transport">Y</div><div class="name">Yandex Maps</div><div class="cat-tag">Xaritalar</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=WB+Taxi&amp;c=apps" target="_blank" rel="noopener" data-name="wb taxi">
+      <div class="icon icon-transport">W</div><div class="name">WB Taxi</div><div class="cat-tag">Taksi</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Uzum+Avto&amp;c=apps" target="_blank" rel="noopener" data-name="uzum avto">
+      <div class="icon icon-transport">U</div><div class="name">Uzum Avto</div><div class="cat-tag">Avtomobil</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=ContraCam&amp;c=apps" target="_blank" rel="noopener" data-name="antiradar contracam">
+      <div class="icon icon-transport">A</div><div class="name">Antiradar ContraCam</div><div class="cat-tag">Xaritalar</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Road24+Jarimalar&amp;c=apps" target="_blank" rel="noopener" data-name="road24">
+      <div class="icon icon-transport">R</div><div class="name">Road24</div><div class="cat-tag">Avtomobil</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-security">
+  <h2>Xavfsizlik va vositalar</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/search?q=Apk+Qoriqchi&amp;c=apps" target="_blank" rel="noopener" data-name="apk qo'riqchi">
+      <div class="icon icon-security">A</div><div class="name">Apk Qo'riqchi</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Thunder+VPN+Fast+Safe&amp;c=apps" target="_blank" rel="noopener" data-name="thunder vpn">
+      <div class="icon icon-security">T</div><div class="name">Thunder VPN</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Secure+VPN+Safer+Internet&amp;c=apps" target="_blank" rel="noopener" data-name="secure vpn">
+      <div class="icon icon-security">S</div><div class="name">Secure VPN</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Rapid+VPN+Safe+Secure&amp;c=apps" target="_blank" rel="noopener" data-name="rapid vpn">
+      <div class="icon icon-security">R</div><div class="name">Rapid VPN</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Salmon+app&amp;c=apps" target="_blank" rel="noopener" data-name="salmon">
+      <div class="icon icon-security">S</div><div class="name">Salmon</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.lenovo.anyshare.gps" target="_blank" rel="noopener" data-name="shareit">
+      <div class="icon icon-security">S</div><div class="name">SHAREit</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=QR+Barcode+Scanner&amp;c=apps" target="_blank" rel="noopener" data-name="qr barcode scanner">
+      <div class="icon icon-security">Q</div><div class="name">QR &amp; Barcode Scanner</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=QR+scanner+Barcode&amp;c=apps" target="_blank" rel="noopener" data-name="qr scanner">
+      <div class="icon icon-security">Q</div><div class="name">QR scanner</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Antivirus+Pure&amp;c=apps" target="_blank" rel="noopener" data-name="antivirus pure">
+      <div class="icon icon-security">A</div><div class="name">Antivirus Pure</div><div class="cat-tag">Asbob</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=PDF+Reader+PDF+Editor&amp;c=apps" target="_blank" rel="noopener" data-name="pdf reader">
+      <div class="icon icon-security">P</div><div class="name">PDF Reader</div><div class="cat-tag">Ish va unumdorlik</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=WPS+Office+PDF+Word&amp;c=apps" target="_blank" rel="noopener" data-name="wps office">
+      <div class="icon icon-security">W</div><div class="name">WPS Office</div><div class="cat-tag">Ish va unumdorlik</div>
+    </a>
+  </div>
+</section>
+
+<section data-section id="sec-health">
+  <h2>Salomatlik</h2>
+  <div class="grid">
+    <a class="card" href="https://play.google.com/store/search?q=OVI+salomatlik&amp;c=apps" target="_blank" rel="noopener" data-name="ovi">
+      <div class="icon icon-health">O</div><div class="name">OVI</div><div class="cat-tag">Salomatlik</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=DMED&amp;c=apps" target="_blank" rel="noopener" data-name="dmed">
+      <div class="icon icon-health">D</div><div class="name">DMED</div><div class="cat-tag">Salomatlik</div>
+    </a>
+    <a class="card" href="https://play.google.com/store/search?q=Eda+AI&amp;c=apps" target="_blank" rel="noopener" data-name="eda ai">
+      <div class="icon icon-health">E</div><div class="name">Eda AI</div><div class="cat-tag">Salomatlik</div>
+    </a>
+  </div>
+</section>
+
+<section id="claude-section">
+  <h2>Claude yordamchisi</h2>
+  <div id="chat-log" class="chat-log"></div>
+  <form id="chat-form" class="chat-form">
+    <input id="chat-input" type="text" placeholder="Masalan: video tahrirlash uchun qaysi ilova yaxshi?" autocomplete="off">
+    <button type="submit" id="chat-send">Yuborish</button>
+  </form>
+  <p id="chat-hint" class="chat-hint"></p>
+</section>
+
+</main>
+<div class="game-form add-panel" id="game-form" role="dialog" aria-label="Ilova qo'shish">
+  <div class="panel-title">Yangi ilova qo'shish</div>
+  <input type="url" id="game-url" placeholder="Ilova havolasi (silka) — Google Play linkini qo'ying" inputmode="url" autocomplete="off">
+  <input type="text" id="game-name" placeholder="Ilova nomi (ixtiyoriy)">
+  <select id="game-cat" aria-label="Toifa"></select>
+  <p class="form-err" id="game-err"></p>
+  <div class="form-actions">
+    <button type="button" class="save-btn" id="game-save">Qo'shish</button>
+    <button type="button" class="cancel-btn" id="game-cancel">Bekor qilish</button>
+  </div>
+</div>
+<button class="fab" id="fab-add" type="button" aria-label="Ilova qo'shish" title="Ilova qo'shish">+</button>
+<footer>Har bir karta Google Play Store'dagi rasmiy sahifaga olib boradi.</footer>
+<script>
+(function(){
+  const APPS = "WhatsApp, Telegram, Instagram, TikTok, Facebook, Snapchat, YouTube, Netflix, Spotify, CapCut, Google Maps, Gmail, Zoom, ChatGPT, Garena Free Fire, PUBG Mobile, va yana ko'plab mahalliy va xalqaro ilovalar quyidagi toifalarda: Sun'iy intellekt (Google Gemini, Claude, ChatGPT), Moliya va banklar (Uzum Bank, Click, Payme, Paynet va h.k.), Davlat xizmatlari (MyGov, OneID, Soliq, HEMIS), Ta'lim (Ziyoly, Oson Prava), Transport (Yandex Go, Yandex Navigator), Xavfsizlik vositalari (VPN'lar, SHAREit, antivirus), Salomatlik (OVI, DMED, Eda AI)";
+  const RULES = "Sen 'HUSANBOY' nomli Google Play ilovalar omborxonasi sahifasidagi yordamchisan. Bu katalogda quyidagi ilovalar bor: " + APPS + ". Foydalanuvchi savoliga qisqa va aniq javob ber: agar mos ilova so'ralsa, shu ro'yxatdan tavsiya qil va nega mosligini 1-2 gapda tushuntir. Faqat o'zbek tilida javob ber.";
+  const log = document.getElementById('chat-log');
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('chat-send');
+  const hint = document.getElementById('chat-hint');
+  let turns = [];
+  let sample = null;
+
+  function addBubble(role, text){
+    const div = document.createElement('div');
+    div.className = 'bubble ' + role;
+    div.textContent = text;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
+  (async function init(){
+    try{
+      if (window.claude && typeof window.claude.use === 'function') {
+        sample = await window.claude.use("sample");
+      }
+    }catch(e){ sample = null; }
+    if(!sample){
+      var cs = document.getElementById('claude-section');
+      if(cs) cs.style.display = 'none';
+    }
+  })();
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const text = input.value.trim();
+    if(!text || !sample) return;
+    input.value = '';
+    sendBtn.disabled = true;
+    addBubble('user', text);
+    turns.push({role:'user', content:text});
+    const replyDiv = addBubble('assistant', 'Yozmoqda...');
+    try{
+      const msgs = turns.map(function(t, i){
+        return i === 0 ? {role:t.role, content: RULES + "\n\nFoydalanuvchi savoli: " + t.content} : t;
+      });
+      const { text: answer } = await sample(msgs, {
+        onText: ({text}) => { replyDiv.textContent = text; log.scrollTop = log.scrollHeight; }
+      });
+      turns.push({role:'assistant', content:answer});
+    }catch(err){
+      turns.pop();
+      if(err && err.code === 'not_granted'){
+        replyDiv.textContent = 'Claude yordamchisidan foydalanish ruxsat etilmagan.';
+      } else if(err && err.code === 'rate_limited'){
+        replyDiv.textContent = 'Juda ko\'p so\'rov yuborildi, biroz kutib qayta urinib ko\'ring.';
+      } else {
+        replyDiv.textContent = (err && err.text) || 'Xatolik yuz berdi, qayta urinib ko\'ring.';
+      }
+    } finally {
+      sendBtn.disabled = false;
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var searchInput = document.getElementById('app-search');
+  if(!searchInput) return;
+  var emptyMsg = document.getElementById('empty-msg');
+  var sections = document.querySelectorAll('section[data-section]');
+  searchInput.addEventListener('input', function(){
+    var q = searchInput.value.trim().toLowerCase();
+    var totalVisible = 0;
+    for(var s=0; s<sections.length; s++){
+      var section = sections[s];
+      var cards = section.querySelectorAll('.card');
+      var visibleInSection = 0;
+      for(var c=0; c<cards.length; c++){
+        var card = cards[c];
+        var name = (card.getAttribute('data-name') || '').toLowerCase();
+        var match = q === '' || name.indexOf(q) !== -1;
+        var target = (card.parentNode && card.parentNode.classList.contains('card-wrap')) ? card.parentNode : card;
+        target.style.display = match ? '' : 'none';
+        if(match) visibleInSection++;
+      }
+      section.style.display = visibleInSection > 0 ? '' : 'none';
+      totalVisible += visibleInSection;
+    }
+    emptyMsg.style.display = totalVisible === 0 ? 'block' : 'none';
+  });
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('game-form');
+  var nameInput = document.getElementById('game-name');
+  var urlInput = document.getElementById('game-url');
+  var catSelect = document.getElementById('game-cat');
+  var saveBtn = document.getElementById('game-save');
+  var cancelBtn = document.getElementById('game-cancel');
+  var fab = document.getElementById('fab-add');
+  if(!form || !saveBtn || !catSelect) return;
+  var db = null;
+  var seen = {};
+
+  var CATS = {
+    'sec-muloqot':   {label:"Muloqot va ijtimoiy tarmoqlar", icon:'icon-social',    tag:'Muloqot'},
+    'sec-video':     {label:"Video va musiqa",               icon:'icon-media',     tag:'Video'},
+    'sec-games':     {label:"O'yinlar",                      icon:'icon-games',     tag:"O'yin"},
+    'sec-ai':        {label:"Sun'iy intellekt",              icon:'icon-ai',        tag:'AI'},
+    'sec-finance':   {label:"Moliya va banklar",             icon:'icon-finance',   tag:'Moliya'},
+    'sec-gov':       {label:"Davlat xizmatlari",             icon:'icon-gov',       tag:'Davlat xizmatlari'},
+    'sec-edu':       {label:"Ta'lim",                        icon:'icon-edu',       tag:"Ta'lim"},
+    'sec-transport': {label:"Transport va navigatsiya",      icon:'icon-transport', tag:'Transport'},
+    'sec-security':  {label:"Xavfsizlik va vositalar",       icon:'icon-security',  tag:'Asbob'},
+    'sec-health':    {label:"Salomatlik",                    icon:'icon-health',    tag:'Salomatlik'},
+    'sec-tools':     {label:"Foydali vositalar (boshqa)",    icon:'',               tag:'Ilova'}
+  };
+
+  Object.keys(CATS).forEach(function(k){
+    var o = document.createElement('option');
+    o.value = k;
+    o.textContent = CATS[k].label;
+    catSelect.appendChild(o);
+  });
+  catSelect.value = 'sec-tools';
+
+  var LS_KEY = 'omborxona_custom_games';
+  function lsRead(){
+    try{
+      var v = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+      return Array.isArray(v) ? v : [];
+    }catch(e){ return []; }
+  }
+  function lsWrite(list){
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(list)); }catch(e){}
+  }
+
+  function validUrl(url){ return /^https?:\/\/[^\s]+$/i.test(url); }
+
+  function nameFromUrl(url){
+    try{
+      var u = new URL(url);
+      var id = u.searchParams.get('id');
+      if(id){
+        var last = id.split('.').pop() || id;
+        return last.charAt(0).toUpperCase() + last.slice(1);
+      }
+      var q = u.searchParams.get('q');
+      if(q) return q;
+    }catch(e){}
+    return '';
+  }
+
+  function showErr(msg){
+    var el = document.getElementById('game-err');
+    if(!el) return;
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+
+  function updateCount(){
+    var el = document.getElementById('app-count');
+    if(el) el.textContent = document.querySelectorAll('.card').length;
+  }
+
+  function exists(url){
+    var cards = document.querySelectorAll('a.card');
+    for(var i = 0; i < cards.length; i++){
+      if(cards[i].getAttribute('href') === url) return true;
+    }
+    return false;
+  }
+
+  function openForm(){
+    form.classList.add('open');
+    if(fab) fab.style.display = 'none';
+    urlInput.focus();
+  }
+
+  function closeForm(){
+    form.classList.remove('open');
+    if(fab) fab.style.display = '';
+    showErr('');
+    urlInput.value = '';
+    nameInput.value = '';
+  }
+
+  function addCardToGrid(name, url, docId, cat){
+    if(!CATS[cat]) cat = 'sec-games';
+    var grid = document.querySelector('#' + cat + ' .grid');
+    if(!grid || !validUrl(url) || seen[url]) return null;
+    seen[url] = true;
+    var info = CATS[cat];
+    var a = document.createElement('a');
+    a.className = 'card';
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('data-name', name.toLowerCase());
+    var letter = (name.trim().charAt(0) || '?').toUpperCase();
+    var iconDiv = document.createElement('div');
+    iconDiv.className = 'icon' + (info.icon ? ' ' + info.icon : '');
+    iconDiv.textContent = letter;
+    var nameDiv = document.createElement('div');
+    nameDiv.className = 'name';
+    nameDiv.textContent = name;
+    var tagDiv = document.createElement('div');
+    tagDiv.className = 'cat-tag';
+    tagDiv.textContent = info.tag;
+    a.appendChild(iconDiv); a.appendChild(nameDiv); a.appendChild(tagDiv);
+    var wrap = document.createElement('div');
+    wrap.className = 'card-wrap';
+    if(docId) wrap.setAttribute('data-id', docId);
+    var del = document.createElement('button');
+    del.type = 'button';
+    del.className = 'del-btn';
+    del.textContent = '×';
+    del.setAttribute('aria-label', "O'chirish");
+    var armTimer = null;
+    del.addEventListener('click', function(){
+      if(!del.classList.contains('armed')){
+        del.classList.add('armed');
+        del.textContent = "O'chirish?";
+        armTimer = setTimeout(function(){
+          del.classList.remove('armed');
+          del.textContent = '×';
+        }, 3000);
+        return;
+      }
+      clearTimeout(armTimer);
+      removeCard(wrap, url);
+    });
+    wrap.appendChild(a);
+    wrap.appendChild(del);
+    grid.appendChild(wrap);
+    updateCount();
+    return wrap;
+  }
+
+  async function removeCard(wrap, url){
+    try{
+      if(wrap._saving){ await wrap._saving; }
+      var id = wrap.getAttribute('data-id');
+      if(id && id.indexOf('ls_') === 0){
+        lsWrite(lsRead().filter(function(it){ return it.id !== id; }));
+      } else if(db && id){
+        await db.collection('custom_games').doc(id).delete();
+      }
+    }catch(e){
+      var b = wrap.querySelector('.del-btn');
+      if(b){
+        b.classList.remove('armed');
+        b.textContent = 'Xato';
+        setTimeout(function(){ b.textContent = '×'; }, 2000);
+      }
+      return;
+    }
+    delete seen[url];
+    if(wrap.parentNode) wrap.parentNode.removeChild(wrap);
+    updateCount();
+  }
+
+  if(fab){
+    fab.addEventListener('click', openForm);
+  }
+  cancelBtn.addEventListener('click', closeForm);
+
+  saveBtn.addEventListener('click', function(){
+    var url = urlInput.value.trim();
+    var name = nameInput.value.trim();
+    var cat = catSelect.value;
+    if(!validUrl(url)){
+      showErr("To'g'ri havola kiriting (https://... bilan boshlansin)");
+      urlInput.focus();
+      return;
+    }
+    if(!name){ name = nameFromUrl(url); }
+    if(!name){
+      showErr("Havoladan nom aniqlanmadi — ilova nomini yozing");
+      nameInput.focus();
+      return;
+    }
+    if(seen[url] || exists(url)){
+      showErr("Bu havola allaqachon ro'yxatda bor");
+      urlInput.focus();
+      return;
+    }
+    var wrap = addCardToGrid(name, url, null, cat);
+    if(!wrap){
+      showErr("Qo'shib bo'lmadi, qayta urinib ko'ring");
+      return;
+    }
+    closeForm();
+    var sec = document.getElementById(cat);
+    if(sec) sec.style.display = '';
+    try{ wrap.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){}
+    wrap._saving = (async function(){
+      try{
+        if(!db && window.claude && window.claude.use){
+          db = await window.claude.use('db');
+        }
+      }catch(e){ db = null; }
+      try{
+        if(db){
+          var ref = await db.collection('custom_games').add({name: name, url: url, cat: cat, addedAt: Date.now()});
+          if(ref && ref.id){ wrap.setAttribute('data-id', ref.id); return; }
+        }
+      }catch(e){}
+      var lid = 'ls_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+      wrap.setAttribute('data-id', lid);
+      var list = lsRead();
+      list.push({id: lid, name: name, url: url, cat: cat});
+      lsWrite(list);
+    })();
+  });
+
+  (async function loadSaved(){
+    try{
+      if(window.claude && window.claude.use){
+        db = await window.claude.use('db');
+      }
+    }catch(e){ db = null; }
+    try{
+      if(db){
+        var snap = await db.collection('custom_games').orderBy('addedAt','asc').get();
+        snap.docs.forEach(function(doc){
+          var d = doc.data();
+          if(d && typeof d.name === 'string' && typeof d.url === 'string' && d.name) addCardToGrid(d.name, d.url, doc.id, d.cat);
+        });
+      } else {
+        lsRead().forEach(function(it){
+          if(it && typeof it.name === 'string' && typeof it.url === 'string' && it.name) addCardToGrid(it.name, it.url, it.id, it.cat);
+        });
+      }
+    }catch(e){}
+  })();
+})();
+</script>
+<style>
+.icon.has-img{background:#fff; padding:5px; overflow:hidden;}
+.icon-img{width:100%; height:100%; object-fit:contain; border-radius:6px; display:block;}
+</style>
+<script>
+(function(){
+  var DOMAINS = {
+    'whatsapp':'whatsapp.com', 'telegram':'telegram.org', 'instagram':'instagram.com',
+    'tiktok':'tiktok.com', 'facebook':'facebook.com', 'snapchat':'snapchat.com',
+    'imo':'imo.im', 'telegram x':'telegram.org', 'threads':'threads.com',
+    'pinterest':'pinterest.com', 'whatsapp business':'business.whatsapp.com',
+    'ucell':'ucell.uz', 'my uztelecom':'uztelecom.uz', 'hambi':'beeline.uz',
+    'youtube':'youtube.com', 'netflix':'netflix.com', 'spotify':'spotify.com',
+    'capcut':'capcut.com', 'edits video editor':'instagram.com', 'canva':'canva.com',
+    'reelshort':'reelshort.com', 'dramabox':'dramabox.com',
+    'garena free fire':'ff.garena.com', 'pubg mobile':'pubgmobile.com',
+    'mobile legends':'mobilelegends.com', 'honor of kings':'honorofkings.com',
+    'standoff 2':'standoff2.com', 'clash of clans':'clashofclans.com',
+    'brawl stars':'brawlstars.com', 'clash royale':'clashroyale.com',
+    'roblox':'roblox.com', 'genshin impact':'genshin.hoyoverse.com',
+    'honkai impact':'hoyoverse.com',
+    'google maps':'maps.google.com', 'gmail':'gmail.com', 'zoom':'zoom.us',
+    'chatgpt':'chatgpt.com', 'uzum market':'uzum.uz', 'olx':'olx.uz', 'korzinka':'korzinka.uz',
+    'google gemini':'gemini.google.com', 'claude by anthropic':'claude.ai',
+    'gauth':'gauthmath.com', 'google wallet':'wallet.google',
+    'uzum bank':'uzumbank.uz', 'paynet':'paynet.uz', 'payme':'payme.uz',
+    'click superapp':'click.uz', 'alif':'alif.uz', 'tbc bank':'tbcbank.uz',
+    'hamkor':'hamkorbank.uz', 'ipoteka mobile':'ipotekabank.uz', 'openbank uz':'openbank.uz',
+    'anorbank':'anorbank.uz', 'agrobank mobile':'agrobank.uz', 'zoomrad':'zoomrad.uz',
+    'korona money transfer':'koronapay.com', 'milliy 2.0':'nbu.uz',
+    'ipak yuli mobile':'ipakyulibank.uz', 'sqb mobile':'sqb.uz', 'uzum nasiya':'uzum.uz',
+    'katm':'katm.uz', 'mygov':'my.gov.uz', 'oneid mobile':'id.egov.uz', 'soliq':'soliq.uz',
+    "myid o'zbekiston":'myid.uz', 'emaktab.oila':'emaktab.uz',
+    'yandex go':'go.yandex', 'yandex navigator':'yandex.com', 'yandex maps':'maps.yandex.com',
+    'uzum avto':'uzum.uz', 'road24':'road24.uz', 'shareit':'shareit.com', 'wps office':'wps.com'
+  };
+
+  function tryLoad(icon, domain){
+    var img = new Image();
+    img.alt = '';
+    img.referrerPolicy = 'no-referrer';
+    img.onload = function(){
+      // juda kichik (standart globus) rasm bo'lsa, harf qoladi
+      if(img.naturalWidth < 32) return;
+      icon.textContent = '';
+      icon.classList.add('has-img');
+      img.className = 'icon-img';
+      icon.appendChild(img);
+    };
+    img.src = 'https://www.google.com/s2/favicons?domain=' + encodeURIComponent(domain) + '&sz=128';
+  }
+
+  var cards = document.querySelectorAll('a.card');
+  for(var i = 0; i < cards.length; i++){
+    var domain = DOMAINS[cards[i].getAttribute('data-name')];
+    var icon = cards[i].querySelector('.icon');
+    if(domain && icon) tryLoad(icon, domain);
+  }
+})();
+</script>
+</body>
+</html>
